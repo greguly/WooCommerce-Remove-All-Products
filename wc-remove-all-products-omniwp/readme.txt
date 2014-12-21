@@ -3,7 +3,7 @@ Contributors: Gabriel Reguly
 Donate link: http://www.omniwp.com.br/donate/
 Tags: woocommerce, products, remove
 Requires at least: 3.0
-Tested up to: 3.9.1
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,10 +30,16 @@ Useful for developers who are importing products and want a tool to easily remov
 
 == Changelog ==
 
+= 1.0.1 =
+* Improvement: get products with any post status, kudos for Stevinoz (https://wordpress.org/support/profile/stevinoz) who warned me about 'drafts' not being removed 
+
 = 1.0 =
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 1.0.1 = 
+* Improvement, upgrade safe
 
 = 1.0 = 
 * Enjoy it!
