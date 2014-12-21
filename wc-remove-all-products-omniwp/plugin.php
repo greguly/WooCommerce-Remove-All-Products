@@ -3,7 +3,7 @@
 
 Plugin Name: WooCommerce Remove All Products
 Description: This plugin will remove all products from a WooCommerce store.
-Version: 1.0
+Version: 1.0.1
 Author: Gabriel Reguly
 Author URI: http://omniwp.com.br/
 
@@ -95,10 +95,9 @@ function wc_remove_all_products_display_default_tab() {
 ?>
 <div id="wc_remove_all_products_options" class="panel woocommerce_options_panel">
   <?php
-
 	$args = array( 
 		'post_type'   => array( 'product', 'product_variation'),
-		'post_status' => 'publish',
+		'post_status' => get_post_stati(),
 		'numberposts' => -1, 
 		);
 	$products = get_posts( $args );
