@@ -13,7 +13,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
 **/
 
-
 add_action( 'plugins_loaded', 'wc_remove_all_products_init' );
 
 function wc_remove_all_products_init() {
@@ -22,7 +21,6 @@ function wc_remove_all_products_init() {
 
 function wc_remove_all_products_admin_menu() {
 	if ( current_user_can( 'manage_woocommerce' ) ) {
-//			woocommerce_admin_css();
 		add_submenu_page('woocommerce',
 			 __('WooCommerce Remove All Products', 'wc_remove_all_products_omniwp'),  
 			 __('Remove All Products', 'wc_remove_all_products_omniwp') , 
@@ -147,7 +145,6 @@ function wc_remove_all_products_display_default_tab() {
 <?php 
 }
 
-
 function wc_remove_all_products_display_log_tab() {
 	$continue = false;
 ?>
@@ -200,7 +197,6 @@ foreach ( wc_remove_all_products_get_log() as $event ) {
 <?php 
 
 }
-
 
 function wc_remove_all_products_nice_time( $time, $args = false ) {
 
@@ -264,5 +260,4 @@ function wc_remove_all_products_delete_log() {
 	array_push( $log, array( $time, __( 'Log cleared.', 'wc_remove_all_products_omniwp' ), $current_user_id ) );
 	update_option( 'wc_remove_all_products_omniwp_log', $log );
 }
-
 ?>
