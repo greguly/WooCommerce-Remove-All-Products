@@ -3,7 +3,7 @@
 
 Plugin Name: WooCommerce Remove All Products
 Description: This plugin will remove all products from a WooCommerce store.
-Version: 1.0.1
+Version: 1.0.2
 Author: Gabriel Reguly
 Author URI: http://omniwp.com.br/
 
@@ -17,13 +17,14 @@ add_action( 'plugins_loaded', 'wc_remove_all_products_init' );
 
 function wc_remove_all_products_init() {
 	add_action( 'admin_menu', 'wc_remove_all_products_admin_menu' );
+	add_filter( 'admin_footer_text', 'wc_remove_all_products_admin_footer_text', 1, 2 );
 }
 
 function wc_remove_all_products_admin_menu() {
 	if ( current_user_can( 'manage_woocommerce' ) ) {
 		add_submenu_page('woocommerce',
-			 __('WooCommerce Remove All Products', 'wc_remove_all_products_omniwp'),  
-			 __('Remove All Products', 'wc_remove_all_products_omniwp') , 
+			 __('WooCommerce Remove All Products', 'wc-remove-all-products-omniwp'),  
+			 __('Remove All Products', 'wc-remove-all-products-omniwp') , 
 			 'manage_woocommerce', 
 			 'wc_remove_all_products_page', 
 			 'wc_remove_all_products_show_page');
@@ -56,16 +57,16 @@ function wc_remove_all_products_show_page() {
 <div class="wrap woocommerce">
   <div id="icon-woocommerce" class="icon32 icon32-woocommerce-settings"></div>
   <h2 class="nav-tab-wrapper"> <a href="<?php echo admin_url('admin.php?page=wc_remove_all_products_page'); ?>" class="nav-tab <?php if ( $tab == 'default' ) echo 'nav-tab-active'; ?>">
-    <?php _e('WooCommerce remove all products', 'wc_remove_all_products_omniwp')?>
+    <?php _e('WooCommerce remove all products', 'wc-remove-all-products-omniwp')?>
     </a> <a href="<?php echo admin_url('admin.php?page=wc_remove_all_products_page&tab=log'); ?>" class="nav-tab <?php if ( $tab == 'log' ) echo 'nav-tab-active'; ?>">
-    <?php _e('Log', 'wc_remove_all_products_omniwp')?>
+    <?php _e('Log', 'wc-remove-all-products-omniwp')?>
     </a> </h2>
   <?php
 	if ( false !== $_REQUEST['settings-updated'] ) { 
 ?>
   <div id="message" class="updated fade">
     
-      <?php echo '<p><strong>' . __( 'Your settings have been saved.', 'wc_remove_all_products_omniwp') . '</strong></p>'; ?>
+      <?php echo '<p><strong>' . __( 'Your settings have been saved.', 'wc-remove-all-products-omniwp') . '</strong></p>'; ?>
       
   </div>
   <?php
@@ -100,19 +101,19 @@ function wc_remove_all_products_display_default_tab() {
 		);
 	$products = get_posts( $args );
 	if ( ! $products ) {
-		echo '<h3>' . __( 'No products found.', 'wc_remove_all_products_omniwp') . '</h3>';
+		echo '<h3>' . __( 'No products found.', 'wc-remove-all-products-omniwp') . '</h3>';
 	} else {
-		echo '<h3>' . sprintf(__( 'Found %s products.', 'wc_remove_all_products_omniwp'), sizeof( $products ) ) . '</h3>';
+		echo '<h3>' . sprintf(__( 'Found %s products.', 'wc-remove-all-products-omniwp'), sizeof( $products ) ) . '</h3>';
 	
 		if (  empty( $_POST ) ) {
 ?>
 	  <form method="post">
-		<input type="submit" class="button button-primary" value="<?php _e('Delete all products, no confirmations will be asked!!', 'wc_remove_all_products_omniwp') ?>" />
+		<input type="submit" class="button button-primary" value="<?php _e('Delete all products, no confirmations will be asked!!', 'wc-remove-all-products-omniwp') ?>" />
 		<?php wp_nonce_field( 'delete_action', 'delete_security_nonce'); ?>
 	  </form>
 <?php
 		} elseif ( check_admin_referer( 'delete_action', 'delete_security_nonce' ) ) {
-			$msg = sprintf(__( 'Removing %s products.', 'wc_remove_all_products_omniwp'), sizeof( $products ) );
+			$msg = sprintf(__( 'Removing %s products.', 'wc-remove-all-products-omniwp'), sizeof( $products ) );
 			printf( '<p>%s</p><ol>', $msg );
 			wc_remove_all_products_omniwp_log( $msg );
 			foreach( $products as $product ) {
@@ -124,16 +125,16 @@ function wc_remove_all_products_display_default_tab() {
 					break;
 				}
 			}
-			$msg =  sprintf(__( 'Removed %s products.', 'wc_remove_all_products_omniwp'), $removed ) ;		
+			$msg =  sprintf(__( 'Removed %s products.', 'wc-remove-all-products-omniwp'), $removed ) ;		
 			printf( '</ol><p>%s</p>', $msg );
 			wc_remove_all_products_omniwp_log( $msg );
 			if ( $timeout_passed ) {
-				$msg =  sprintf(__( 'Stopped processing due to imminent timeout.', 'wc_remove_all_products_omniwp') ) ;		
+				$msg =  sprintf(__( 'Stopped processing due to imminent timeout.', 'wc-remove-all-products-omniwp') ) ;		
 				printf( '<h2>%s</h2>', $msg );
 				wc_remove_all_products_omniwp_log( $msg );
 ?>
 	  <form method="post">
-		<input type="submit" class="button button-primary" value="<?php _e('Continue deleting all products, again no confirmations will be asked!!', 'wc_remove_all_products_omniwp') ?>" />
+		<input type="submit" class="button button-primary" value="<?php _e('Continue deleting all products, again no confirmations will be asked!!', 'wc-remove-all-products-omniwp') ?>" />
 		<?php wp_nonce_field( 'delete_action', 'delete_security_nonce'); ?>
 	  </form>
 <?php				
@@ -159,16 +160,16 @@ function wc_remove_all_products_display_log_tab() {
 	}
 ?>
   <h3>
-    <?php _e('Logged events', 'wc_remove_all_products_omniwp');?>
+    <?php _e('Logged events', 'wc-remove-all-products-omniwp');?>
     <a href="<?php echo wp_nonce_url( admin_url('admin.php?page=wc_remove_all_products_page&tab=log&clear_log=1' ) ); ?>" class="button-primary right">
-    <?php _e( 'Clear Log', 'wc_remove_all_products_omniwp') ?>
+    <?php _e( 'Clear Log', 'wc-remove-all-products-omniwp') ?>
     </a></h3>
   <table class="widefat">
     <thead>
       <tr>
-        <th style="width: 150px"><?php _e( 'Timestamp', 'wc_remove_all_products_omniwp') ?></th>
-        <th><?php _e( 'Event', 'wc_remove_all_products_omniwp') ?></th>
-        <th><?php _e( 'User', 'wc_remove_all_products_omniwp') ?></th>
+        <th style="width: 150px"><?php _e( 'Timestamp', 'wc-remove-all-products-omniwp') ?></th>
+        <th><?php _e( 'Event', 'wc-remove-all-products-omniwp') ?></th>
+        <th><?php _e( 'User', 'wc-remove-all-products-omniwp') ?></th>
       </tr>
     </thead>
     <tbody>
@@ -229,7 +230,7 @@ function wc_remove_all_products_omniwp_log( $event ) {
 	
 	if ( ! is_array( $log ) ) {
 		$log = array();
-		array_push( $log, array( $time, __( 'Log Started.', 'wc_remove_all_products_omniwp' ), $current_user_id ) );
+		array_push( $log, array( $time, __( 'Log Started.', 'wc-remove-all-products-omniwp' ), $current_user_id ) );
 	}
 
 	array_push( $log, array( $time, $event, $current_user_id ) );
@@ -245,7 +246,7 @@ function wc_remove_all_products_get_log() {
 		$log             = array();
 		$time_difference = get_option( 'gmt_offset' ) * 3600;
 		$time            = time() + $time_difference;
-		array_push( $log, array( $time, __( 'Log Started.', 'wc_remove_all_products_omniwp' ), $current_user_id ) );
+		array_push( $log, array( $time, __( 'Log Started.', 'wc-remove-all-products-omniwp' ), $current_user_id ) );
 		update_option( 'wc_remove_all_products_omniwp_log', $log );
 	}
 	return array_reverse( get_option( 'wc_remove_all_products_omniwp_log' ) );
@@ -257,7 +258,22 @@ function wc_remove_all_products_delete_log() {
 	$log             = array();
 	$time_difference = get_option( 'gmt_offset' ) * 3600;
 	$time            = time() + $time_difference;
-	array_push( $log, array( $time, __( 'Log cleared.', 'wc_remove_all_products_omniwp' ), $current_user_id ) );
+	array_push( $log, array( $time, __( 'Log cleared.', 'wc-remove-all-products-omniwp' ), $current_user_id ) );
 	update_option( 'wc_remove_all_products_omniwp_log', $log );
+}
+
+function wc_remove_all_products_admin_footer_text( $footer_text ) {
+	global $current_screen;
+
+	// list of admin pages we want this to appear on
+	$pages = array(
+		'woocommerce_page_wc_remove_all_products_page',
+	);
+
+	if ( isset( $current_screen->id ) && in_array( $current_screen->id, $pages ) ) {
+		$footer_text = sprintf( __( 'Please rate <strong>WooCommerce Remove All Products</strong> <a href="%1$s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a href="%1$s" target="_blank">WordPress.org</a> to help us keep this plugin free.', 'wc-remove-all-products-omniwp' ), 'https://wordpress.org/support/view/plugin-reviews/woocommerce-remove-all-products?filter=5#postform' );
+	}
+
+	return $footer_text;
 }
 ?>
