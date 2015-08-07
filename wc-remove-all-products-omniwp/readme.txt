@@ -41,7 +41,7 @@ If you want help with a customisation, hire a developer!
 
 == Changelog ==
 
-= 2015-08-07 1.0.4 =
+=  1.0.4 2015-08-07 =
 * Cosmetic: Changed wording from 'Removing 250 products' to 'Trying to remove 250 products'. Thanks Nick @https://github.com/greguly/WooCommerce-Remove-All-Products/issues/2
 
 = 1.0.3 =
