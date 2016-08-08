@@ -3,13 +3,13 @@
 
 Plugin Name: WooCommerce Remove All Products
 Description: This plugin will remove all products from a WooCommerce store.
-Version: 1.0.4
+Version: 1.0.4.1
 Author: Gabriel Reguly
 Author URI: http://omniwp.com.br/
 Text Domain: woocommerce-remove-all-products
 Domain Path: /languages
 
-Copyright: 2014, 2015 Gabriel Reguly
+Copyright: 2014, 2015, 2016 Gabriel Reguly
 License: GNU General Public License v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -59,11 +59,11 @@ function wc_remove_all_products_show_page() {
 
 <div class="wrap woocommerce">
   <div id="icon-woocommerce" class="icon32 icon32-woocommerce-settings"></div>
-  <h2 class="nav-tab-wrapper"> <a href="<?php echo admin_url('admin.php?page=wc_remove_all_products_page'); ?>" class="nav-tab <?php if ( $tab == 'default' ) echo 'nav-tab-active'; ?>">
+  <h1 class="nav-tab-wrapper"> <a href="<?php echo admin_url('admin.php?page=wc_remove_all_products_page'); ?>" class="nav-tab <?php if ( $tab == 'default' ) echo 'nav-tab-active'; ?>">
     <?php _e('WooCommerce Remove All Products', 'woocommerce-remove-all-products')?>
     </a> <a href="<?php echo admin_url('admin.php?page=wc_remove_all_products_page&tab=log'); ?>" class="nav-tab <?php if ( $tab == 'log' ) echo 'nav-tab-active'; ?>">
     <?php _e('Log', 'woocommerce-remove-all-products')?>
-    </a> </h2>
+    </a> </h1>
   <?php
 	if ( false !== $_REQUEST['settings-updated'] ) { 
 ?>
@@ -106,9 +106,9 @@ function wc_remove_all_products_display_default_tab() {
   
 
 	if ( ! $products_count ) {
-		echo '<h3>' . __( 'No products found.', 'woocommerce-remove-all-products') . '</h3>';
+		echo '<h2>' . __( 'No products found.', 'woocommerce-remove-all-products') . '</h2>';
 	} else {
-		echo '<h3>' . sprintf(__( 'Found %s products.', 'woocommerce-remove-all-products'), $products_count ) . '</h3>';
+		echo '<h2>' . sprintf(__( 'Found %s products.', 'woocommerce-remove-all-products'), $products_count ) . '</h2>';
 		
 		if (  empty( $_POST ) ) {
 ?>
@@ -122,7 +122,7 @@ function wc_remove_all_products_display_default_tab() {
 			$args = array( 
 				'post_type'   => array( 'product', 'product_variation' ),
 				'post_status' => get_post_stati(),
-				'numberposts' => 250, 
+				'numberposts' => 150, 
 				);
 			$products = get_posts( $args );
 
@@ -130,7 +130,8 @@ function wc_remove_all_products_display_default_tab() {
 			printf( '<p>%s</p><ol>', $msg );
 			wc_remove_all_products_omniwp_log( $msg );
 			foreach( $products as $product ) {
-				printf( '<li>%s</li>', $product->post_title );
+				$_product = wc_get_product( $product->ID );
+				printf( '<li>%s</li>', $_product->get_formatted_name() );
 				wp_delete_post( $product->ID, $force_delete = true );
 				$removed++;
 				if ( ( time() - $timestamp ) > ( $maximum_time - 2 ) ) {
@@ -139,19 +140,16 @@ function wc_remove_all_products_display_default_tab() {
 				}
 			}
 			$msg =  sprintf(__( 'Removed %s products.', 'woocommerce-remove-all-products'), $removed ) ;		
+
 			printf( '</ol><p>%s</p>', $msg );
 			wc_remove_all_products_omniwp_log( $msg );
-			if ( $timeout_passed ) {
-				$msg =  sprintf(__( 'Stopped processing due to imminent timeout.', 'woocommerce-remove-all-products') ) ;		
-				printf( '<h2>%s</h2>', $msg );
-				wc_remove_all_products_omniwp_log( $msg );
 ?>
-	  <form method="post">
-		<input type="submit" class="button button-primary" value="<?php _e('Continue deleting all products, again no confirmations will be asked!!', 'woocommerce-remove-all-products') ?>" />
+	  <form method="post id="continue">
+		<input id="continue" type="submit" class="button button-primary" value="<?php _e('Continue deleting all products, again no confirmations will be asked!!', 'woocommerce-remove-all-products') ?>" />
 		<?php wp_nonce_field( 'delete_action', 'delete_security_nonce'); ?>
 	  </form>
+<script>$('form#continue').submit();</script>
 <?php				
-			}
 		}
 	}
 ?>
