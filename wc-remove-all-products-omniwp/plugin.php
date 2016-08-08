@@ -144,11 +144,16 @@ function wc_remove_all_products_display_default_tab() {
 			printf( '</ol><p>%s</p>', $msg );
 			wc_remove_all_products_omniwp_log( $msg );
 ?>
-	  <form method="post id="continue">
+	  <form method="post" id="autopostform">
 		<input id="continue" type="submit" class="button button-primary" value="<?php _e('Continue deleting all products, again no confirmations will be asked!!', 'woocommerce-remove-all-products') ?>" />
 		<?php wp_nonce_field( 'delete_action', 'delete_security_nonce'); ?>
 	  </form>
-<script>$('form#continue').submit();</script>
+<script>
+jQuery(function($) {
+  $( '#continue' ).addClass( 'disabled'  );
+  $( '#autopostform'  ).submit();
+});
+</script>
 <?php				
 		}
 	}
