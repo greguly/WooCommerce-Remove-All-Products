@@ -1,14 +1,14 @@
 === WooCommerce Remove All Products ===
 Contributors: Gabriel Reguly
-Donate link: http://www.omniwp.com.br/donate/
+Donate link: https://github.com/greguly/WooCommerce-Remove-All-Products
 Tags: woocommerce, products, remove
 Requires at least: 3.0
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Removes all products from WooCommerce
+Removes all products from WooCommerce, 250 products per round.
 
 == Description ==
 
@@ -16,7 +16,7 @@ Useful for developers who are importing products and want a tool to easily remov
 
 = Contributing and reporting bugs =
 
-You can contribute code and localizations to this plugin via GitHub: [https://github.com/greguly/WooCommerce-Remove-All-Products](hhttps://github.com/greguly/WooCommerce-Remove-All-Products)
+You can contribute code and localizations to this plugin via GitHub: [https://github.com/greguly/WooCommerce-Remove-All-Products](https://github.com/greguly/WooCommerce-Remove-All-Products)
 
 = Support =
 
@@ -41,6 +41,9 @@ If you want help with a customisation, hire a developer!
 
 == Changelog ==
 
+=  1.0.4.1 2016-10-03 =
+* Cosmetic: Changed HTML header levels ( e.g. <h2> -> <h1> )
+
 =  1.0.4 2015-08-07 =
 * Cosmetic: Changed wording from 'Removing 250 products' to 'Trying to remove 250 products'. Thanks Nick @https://github.com/greguly/WooCommerce-Remove-All-Products/issues/2
 
@@ -58,9 +61,6 @@ If you want help with a customisation, hire a developer!
 * Initial plugin release
 
 == Upgrade Notice ==
-
-= 1.0.4 = 
-* Cosmetic, upgrade safe
 
 = 1.0.3 = 
 * Improvement, upgrade safe
