@@ -3,12 +3,12 @@ Contributors: Gabriel Reguly
 Donate link: https://github.com/greguly/WooCommerce-Remove-All-Products
 Tags: woocommerce, products, remove
 Requires at least: 3.0
-Tested up to: 4.3
+Tested up to: 4.8.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Removes all products from WooCommerce, 250 products per round.
+Removes all products from WooCommerce, 150 products per round.
 
 == Description ==
 
@@ -38,8 +38,10 @@ If you want help with a customisation, hire a developer!
 
 * This plugin is released under a GPL license
 
-
 == Changelog ==
+
+=  1.0.5 2017-09-21 =
+* Dev: Added WC compatibility headers
 
 =  1.0.4.1 2016-10-03 =
 * Cosmetic: Changed HTML header levels ( e.g. <h2> -> <h1> )
