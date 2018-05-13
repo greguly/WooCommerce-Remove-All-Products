@@ -3,7 +3,7 @@ Contributors: Gabriel Reguly
 Donate link: https://github.com/greguly/WooCommerce-Remove-All-Products
 Tags: woocommerce, products, remove
 Requires at least: 3.0
-Tested up to: 4.8.2
+Tested up to: 4.9.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -41,7 +41,7 @@ If you want help with a customisation, hire a developer!
 = How can I remove more than 150 products per round? =
 
 * Find and edit code  where " 'numberposts' => 150 ". 
-* Use the WordPress.org forums for community support - I cannot offer support directly for free.
+Use the WordPress.org forums for community support as I cannot offer support directly for free.
 If you want help with a customisation, hire a developer!
 
 == Changelog ==
