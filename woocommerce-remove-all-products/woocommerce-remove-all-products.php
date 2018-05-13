@@ -4,7 +4,7 @@
  * Plugin Name: WooCommerce Remove All Products
  * Plugin URI: https://wordpress.org/plugins/woocommerce-remove-all-products/
 
- * Version: 1.0.5
+ * Version: 1.0.6
  * Description: This plugin will remove all products from a WooCommerce store.
  
  * Author: Gabriel Reguly
@@ -14,18 +14,22 @@
  * Domain Path: /languages
 
  * WC requires at least: 2.0
- * WC tested up to: 3.1.2
+ * WC tested up to: 3.3.5
 
- * Copyright: 2014-17 Gabriel Reguly
+ * Copyright: 2014-18 Gabriel Reguly
  * License: GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
 **/
 
-add_action( 'plugins_loaded', 'wc_remove_all_products_init' );
+add_action( 'init',  'wc_remove_all_products_init' );
+add_action( 'plugins_loaded', 'wc_remove_all_products_plugins_loaded' );
 
 function wc_remove_all_products_init() {
 	load_plugin_textdomain( 'woocommerce-remove-all-products', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+function wc_remove_all_products_plugins_loaded() {
 	add_action( 'admin_menu', 'wc_remove_all_products_admin_menu' );
 	add_filter( 'admin_footer_text', 'wc_remove_all_products_admin_footer_text', 1, 2 );
 }
@@ -138,9 +142,11 @@ function wc_remove_all_products_display_default_tab() {
 			wc_remove_all_products_omniwp_log( $msg );
 			foreach( $products as $product ) {
 				$_product = wc_get_product( $product->ID );
-				printf( '<li>%s</li>', $_product->get_formatted_name() );
-				wp_delete_post( $product->ID, $force_delete = true );
-				$removed++;
+				if ( $_product ) {
+					printf( '<li>%s</li>', $_product->get_formatted_name() );
+					wp_delete_post( $product->ID, $force_delete = true );
+					$removed++;
+				}
 				if ( ( time() - $timestamp ) > ( $maximum_time - 2 ) ) {
 					$timeout_passed	= true;
 					break;
@@ -219,7 +225,6 @@ foreach ( wc_remove_all_products_get_log() as $event ) {
   </table>
 </div>
 <?php 
-
 }
 
 function wc_remove_all_products_nice_time( $time, $args = false ) {
@@ -299,4 +304,4 @@ function wc_remove_all_products_admin_footer_text( $footer_text ) {
 
 	return $footer_text;
 }
-?>
+
