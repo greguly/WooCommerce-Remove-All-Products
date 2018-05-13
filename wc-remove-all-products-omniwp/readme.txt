@@ -38,7 +38,17 @@ If you want help with a customisation, hire a developer!
 
 * This plugin is released under a GPL license
 
+= How can I remove more than 150 products per round? =
+
+* Find and edit code  where " 'numberposts' => 150 ". 
+* Use the WordPress.org forums for community support - I cannot offer support directly for free.
+If you want help with a customisation, hire a developer!
+
 == Changelog ==
+
+=  1.0.6 2018-05-12 =
+* Bug fix: Failed due to fatal error: Call to a member function get_formatted_name() on boolean. Thanks Joel @https://wordpress.org/support/topic/failed-due-to-fatal-error/
+* Dev: Bumped WC compatibility headers
 
 =  1.0.5 2017-09-21 =
 * Dev: Added WC compatibility headers
@@ -63,6 +73,9 @@ If you want help with a customisation, hire a developer!
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 1.0.6 = 
+* Bug fix, upgrade safe
 
 = 1.0.3 = 
 * Improvement, upgrade safe
