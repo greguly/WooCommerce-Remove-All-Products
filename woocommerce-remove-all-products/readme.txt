@@ -29,6 +29,7 @@ If you want help with a customisation, hire a developer!
 
 1. Upload plugin files to your plugins folder, or install using WordPress' built-in Add New Plugin installer
 1. Activate the plugin
+1. Find the menu entry 'Remove All Products' under 'WooCommerce' menu
 1. Your WooCommerce store now has an easy way to remove all products
 
 
@@ -41,7 +42,7 @@ If you want help with a customisation, hire a developer!
 = How can I remove more than 150 products per round? =
 
 * Find and edit code  where " 'numberposts' => 150 ". 
-Use the WordPress.org forums for community support as I cannot offer support directly for free.
+* Use the WordPress.org forums for community support as I cannot offer support directly for free.
 If you want help with a customisation, hire a developer!
 
 == Changelog ==
