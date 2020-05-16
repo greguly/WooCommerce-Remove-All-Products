@@ -3,8 +3,9 @@ Contributors: Gabriel Reguly
 Donate link: https://github.com/greguly/WooCommerce-Remove-All-Products
 Tags: woocommerce, products, remove
 Requires at least: 3.0
-Tested up to: 4.9.5
-Stable tag: trunk
+Tested up to: 5.4.1
+Requires PHP: 5.6
+Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +48,14 @@ If you want help with a customisation, hire a developer!
 
 == Changelog ==
 
+=  4.1 2020-05-15 =
+* Updated for WordPress 5.4 and WooCommerce 4.0
+* Enhancement: Remove product images, 🎉 https://github.com/jraoatlogic
+* Enhancement: Direct link to plugin page
+* Dev: Bumped WC compatibility headers
+* Tweak: Better code formatting 
+* Cosmetic: Better word formatting
+
 =  1.0.6 2018-05-12 =
 * Bug fix: Failed due to fatal error: Call to a member function get_formatted_name() on boolean. Thanks Joel @https://wordpress.org/support/topic/failed-due-to-fatal-error/
 * Dev: Bumped WC compatibility headers
@@ -55,7 +64,7 @@ If you want help with a customisation, hire a developer!
 * Dev: Added WC compatibility headers
 
 =  1.0.4.1 2016-10-03 =
-* Cosmetic: Changed HTML header levels ( e.g. <h2> -> <h1> )
+* Cosmetic: Changed HTML header levels ( e.g. h2 to h1 )
 
 =  1.0.4 2015-08-07 =
 * Cosmetic: Changed wording from 'Removing 250 products' to 'Trying to remove 250 products'. Thanks Nick @https://github.com/greguly/WooCommerce-Remove-All-Products/issues/2
@@ -74,6 +83,9 @@ If you want help with a customisation, hire a developer!
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 4.1 = 
+* Improvement (now removes product images), upgrade safe
 
 = 1.0.6 = 
 * Bug fix, upgrade safe
