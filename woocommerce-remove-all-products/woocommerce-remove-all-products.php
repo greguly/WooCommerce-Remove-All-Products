@@ -201,11 +201,12 @@ function wc_remove_all_products_display_default_tab() {
 					$attachments_ids = get_posts( $args );
 
 					if ( ! empty( $attachments_ids ) ) {
-
-						$images_removed += count( $attachments_ids );
-
-						$delete_attachments_query = $wpdb->prepare( 'DELETE FROM %1$s WHERE ID IN (%2$s)', $wpdb->posts, implode( ',', $attachments_ids ) );
-						$wpdb->query( $delete_attachments_query );
+						
+			  			foreach ($attachments_ids as $attachment_id) {
+							wp_delete_attachment($attachment_id);
+						}
+						
+						$images_removed += count( $attachments_ids );	
 
 					}
 
