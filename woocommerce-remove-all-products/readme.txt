@@ -4,11 +4,11 @@ Donate link: https://github.com/greguly/WooCommerce-Remove-All-Products
 Tags: woocommerce, products, remove
 
 Requires at least: 3.0
-Tested up to: 5.6.2
+Tested up to: 5.7.2
 
-Stable tag: 5.1
+Stable tag: 5.4.1
 WC requires at least: 3.0
-WC tested up to: 5.1
+WC tested up to: 5.4.1
 
 
 License: GPLv2 or later
@@ -52,6 +52,9 @@ If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](
 If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](hire a developer!)
 
 == Changelog ==
+
+=  5.4.1 2021-06-29 =
+* Dev: Bumped WC compatibility headers
 
 =  5.1 2021-04-06 =
 * Dev: Bumped WC compatibility headers

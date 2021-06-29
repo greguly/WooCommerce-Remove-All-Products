@@ -13,12 +13,12 @@
  * Domain Path: /languages
  *
  * Requires at least: 3.5
- * Tested up to: 5.6.2
+ * Tested up to: 5.7.2
  *
  *
  * Requires PHP: 5.2
  * WC requires at least: 2.0
- * WC tested up to: 5.1
+ * WC tested up to: 5.4.1
  *
  * Copyright: 2014-21 Gabriel Reguly
  * License: GNU General Public License v2.0 or later
