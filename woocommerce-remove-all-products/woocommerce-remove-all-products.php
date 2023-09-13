@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Remove All Products
  * Plugin URI: https://wordpress.org/plugins/woocommerce-remove-all-products/
  *
- * Version: 6.4
+ * Version: 8.1.0
  * Description: This plugin will remove all products and product images from a WooCommerce store.
  * 
  * Author: Gabriel Reguly, Erik Golinelli
@@ -13,14 +13,14 @@
  * Domain Path: /languages
  *
  * Requires at least: 3.5
- * Tested up to: 5.9.2
+ * Tested up to: 6.3.1
  *
  * Requires PHP: 5.2
  *
- * WC requires at least: 2.0
- * WC tested up to: 6.4
+ * WC requires at least: 3.0
+ * WC tested up to: 8.1.0
  *
- * Copyright: 2014-22 Gabriel Reguly
+ * Copyright: 2014-23 Gabriel Reguly
  * License: GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
