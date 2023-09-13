@@ -3,10 +3,10 @@ Contributors: Gabriel Reguly, Erik Golinelli
 Donate link: https://github.com/greguly/WooCommerce-Remove-All-Products
 Tags: woocommerce, products, remove
 Requires at least: 3.0
-Tested up to: 5.9.2
-Stable tag: 6.4
+Tested up to: 6.3.1
+Stable tag: 8.1.0
 WC requires at least: 3.0
-WC tested up to: 6.4
+WC tested up to: 8.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ You can contribute code and localizations to this plugin via GitHub: [https://gi
 
 Use the WordPress.org forums for community support - I cannot offer support directly for free. If you spot a bug, you can of course log it on [Github](https://github.com/greguly/WooCommerce-Remove-All-Products) instead where I can act upon it more efficiently.
 
-If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](hire a developer!)
+If you want help with a customisation, consider [hiring a developer](http://omniwp.com.br/hire-a-developer/) 
 
 
 == Installation ==
@@ -48,6 +48,10 @@ If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](
 If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](hire a developer!)
 
 == Changelog ==
+
+=  8.1.0 2023-09-13 =
+* Updated for WordPress 6.3.1 and WooCommerce 8.1.0
+* Dev: Bumped WC compatibility headers
 
 =  6.4 2022-04-04 =
 * Updated for WordPress 5.9.2 and WooCommerce 6.4
@@ -92,6 +96,12 @@ If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 8.1.0 = 
+* Version bump
+
+= 6.4 = 
+* Version bump
 
 = 4.2 = 
 * Version bump
