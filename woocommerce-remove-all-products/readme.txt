@@ -4,7 +4,7 @@ Donate link: https://github.com/greguly/WooCommerce-Remove-All-Products
 Tags: woocommerce, products, remove
 Requires at least: 3.0
 Tested up to: 6.3.1
-Stable tag: 8.1.0
+Stable tag: 8.1.0.1
 WC requires at least: 3.0
 WC tested up to: 8.1.0
 License: GPLv2 or later
@@ -48,6 +48,9 @@ If you want help with a customisation, consider [hiring a developer](http://omni
 If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](hire a developer!)
 
 == Changelog ==
+
+=  8.1.0.1 2023-10-04 =
+* Bug fix: Removed deprecated parameter at add_option()
 
 =  8.1.0 2023-09-13 =
 * Updated for WordPress 6.3.1 and WooCommerce 8.1.0
@@ -96,6 +99,9 @@ If you want help with a customisation, [http://omniwp.com.br/hire-a-developer/](
 * Initial plugin release
 
 == Upgrade Notice ==
+
+= 8.1.0.1 = 
+* Bug fix, upgrade safe
 
 = 8.1.0 = 
 * Version bump

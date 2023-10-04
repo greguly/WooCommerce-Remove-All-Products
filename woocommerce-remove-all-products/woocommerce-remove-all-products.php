@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Remove All Products
  * Plugin URI: https://wordpress.org/plugins/woocommerce-remove-all-products/
  *
- * Version: 8.1.0
+ * Version: 8.1.0.1
  * Description: This plugin will remove all products and product images from a WooCommerce store.
  * 
  * Author: Gabriel Reguly, Erik Golinelli
@@ -359,7 +359,7 @@ function wc_remove_all_products_omniwp_log( $event ) {
 
 		$log = array();
 		array_push( $log, array( $time, esc_html__( 'Log Started.', 'woocommerce-remove-all-products' ), $current_user_id ) );
-		add_option( 'wc_remove_all_products_omniwp_log', $log, 'no' );
+		add_option( 'wc_remove_all_products_omniwp_log', $log, '', 'no' );
 
 	}
 
@@ -381,7 +381,7 @@ function wc_remove_all_products_get_log() {
 		$time            = time() + $time_difference;
 
 		array_push( $log, array( $time, esc_html__( 'Log Started.', 'woocommerce-remove-all-products' ), $current_user_id ) );
-		add_option( 'wc_remove_all_products_omniwp_log', $log, 'no' );
+		add_option( 'wc_remove_all_products_omniwp_log', $log, '', 'no' );
 
 	}
 
