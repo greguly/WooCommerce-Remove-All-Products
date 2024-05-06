@@ -163,7 +163,7 @@ function wc_remove_all_products_display_default_tab() {
 			if ( empty( $_POST ) ) {
 
 			?>
-
+				<h3><?php esc_html_e( 'Danger Will Robinson!! All of your products and their images will be DELETED PERMANENTLY.', 'woocommerce-remove-all-products' );?></h3>
 				<form method="post">
 					<input type="submit" class="button button-primary" value="<?php esc_html_e('Delete all products and their images, no confirmations will be asked!!', 'woocommerce-remove-all-products') ?>" />
 					<?php wp_nonce_field( 'delete_action', 'delete_security_nonce'); ?>
